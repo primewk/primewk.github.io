@@ -8,6 +8,7 @@ import instagram from '../public/icons/instagram.svg'
 import kofi from '../public/icons/kofi.svg'
 import linkedin from '../public/icons/linkedin.svg'
 import medium from '../public/icons/medium.svg'
+import discord from '../public/icons/discord.svg'
 import patreon from '../public/icons/patreon.svg'
 import producthunt from '../public/icons/producthunt.svg'
 import readcv from '../public/icons/read-cv.svg'
@@ -48,111 +49,23 @@ const websites = [
 ]
 
 const LINKS: { [key in SocialMedia]: Link } = {
-  behance: {
-    title: 'Behance',
-    icon: behance,
-    link: 'https://www.behance.net/johndoe',
-    text: '@johndoe',
-  },
-  buymeacoffee: {
-    title: 'Buy me a coffee',
-    icon: buymeacoffee,
-    link: 'https://buymeacoffee.com/johndoe',
-  },
-  dribbble: {
-    title: 'Dribbble',
-    icon: dribbble,
-    link: 'https://dribbble.com/johndoe',
-    text: '@johndoe',
-  },
-  figma: {
-    title: 'Figma',
-    icon: figma,
-    link: 'https://www.figma.com/@johndoe',
-    text: '@johndoe',
-  },
-  github: {
-    title: 'Github',
+  GitHub: {
+    title: 'GitHub',
     icon: github,
-    link: 'https://github.com/johndoe',
-    text: '@johndoe',
+    link: 'https://www.github.com/primewk/',
+    text: '@primewk',
   },
-  gumroad: {
-    title: 'Gumroad',
-    icon: gumroad,
-    link: 'https://johndoe.gumroad.com/',
+  Discord: {
+    title: 'Discord',
+    icon: discord,
+    link: 'https://www.github.com/primewk/',
+    text: 'WK Dev Server',
   },
-  instagram: {
-    title: 'Instagram',
-    icon: instagram,
-    link: 'https://www.instagram.com/johndoe/',
-    text: '@johndoe',
-  },
-  kofi: {
-    title: 'Ko-fi',
-    icon: kofi,
-    link: 'https://ko-fi.com/johndoe',
-    text: '@johndoe',
-  },
-  linkedin: {
-    title: 'Linkedin',
-    icon: linkedin,
-    link: 'https://www.linkedin.com/in/johndoe/',
-    text: '@johndoe',
-  },
-  medium: {
-    title: 'Medium',
-    icon: medium,
-    link: 'https://medium.com/@johndoe',
-    text: '@johndoe',
-  },
-  patreon: {
-    title: 'Patreon',
-    icon: patreon,
-    link: 'https://www.patreon.com/johndoe',
-    text: '@johndoe',
-  },
-  producthunt: {
-    title: 'Product Hunt',
-    icon: producthunt,
-    link: 'https://www.producthunt.com/@johndoe',
-    text: '@johndoe',
-  },
-  readcv: {
-    title: 'Read CV',
-    icon: readcv,
-    link: 'https://read.cv/johndoe',
-    text: '@johndoe',
-  },
-  reddit: {
-    title: 'Reddit',
-    icon: reddit,
-    link: 'https://reddit.com/u/johndoe',
-    text: '/u/johndoe',
-  },
-  tiktok: {
-    title: 'Tiktok',
-    icon: tiktok,
-    link: 'https://www.tiktok.com/@johndoe',
-    text: '@johndoe',
-  },
-  twitch: {
-    title: 'Twitch',
-    icon: twitch,
-    link: 'https://www.twitch.tv/johndoe',
-    text: '@johndoe',
-  },
-  x: {
+  X: {
     title: 'X',
     icon: x,
-    link: 'https://twitter.com/johndoe',
-    text: 'johndoe',
-  },
-  youtube: {
-    title: 'Youtube',
-    icon: youtube,
-    link: 'https://www.youtube.com/@johndoe',
-    text: '@johndoe',
+    link: 'https://x.com/primeinspace',
+    text: '@primeinspace',
   },
 }
 

@@ -12,7 +12,7 @@ export default function Home() {
         />
 
         <div className="mt-8">
-          <h2 className="text-3xl font-heading sm:text-[44px]">John Doe</h2>
+          <h2 className="text-3xl font-heading sm:text-[44px]">primewk</h2>
           <p className="mt-6 text-base font-base sm:text-xl">
             This is the bento neobrutalism template. Check the{' '}
             <a
