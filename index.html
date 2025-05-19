@@ -1,1 +1,679 @@
-<p>they say he was the first retard born on this planet</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anon's Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #eef2ff;
+            --post-bg: #d6daf0;
+            --border-color: #b7c5d9;
+            --link-color: #34345c;
+            --text-color: #000000;
+            --header-color: #af0a0f;
+            --post-hover: #ececf5;
+            --thread-bg: #f0e0d6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: arial, helvetica, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            padding-bottom: 40px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #ff0000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .board-header {
+            background-color: #006ab9;
+            color: white;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid black;
+        }
+
+        .board-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .board-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .board-nav {
+            background-color: #d6daf0;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-bottom: 1px solid #b7c5d9;
+            margin-bottom: 15px;
+        }
+
+        .thread {
+            margin-bottom: 20px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+        }
+
+        .op-post {
+            background-color: var(--post-bg);
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        .post-info {
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            color: #0f0c5d;
+            font-weight: bold;
+        }
+
+        .post-number {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .post-content {
+            margin-top: 5px;
+            overflow-wrap: break-word;
+        }
+
+        .post-img {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            max-width: 250px;
+            max-height: 250px;
+            border: 1px solid var(--border-color);
+        }
+
+        .greentext {
+            color: #789922;
+        }
+
+        .reply {
+            background-color: var(--post-bg);
+            padding: 10px;
+            margin-top: 5px;
+            margin-left: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .reply:hover, .op-post:hover {
+            background-color: var(--post-hover);
+        }
+
+        .fake-file {
+            display: block;
+            color: var(--link-color);
+            margin-bottom: 5px;
+        }
+
+        .skills-list span {
+            display: inline-block;
+            background-color: var(--post-bg);
+            border: 1px solid var(--border-color);
+            margin: 2px;
+            padding: 2px 5px;
+        }
+
+        .tab-container {
+            margin-bottom: 20px;
+        }
+
+        .tab-nav {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .tab-button {
+            padding: 5px 10px;
+            background-color: var(--post-bg);
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--bg-color);
+            position: relative;
+            top: 1px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        #contact-form {
+            background-color: var(--post-bg);
+            padding: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        #contact-form input, #contact-form textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+        }
+
+        #contact-form button {
+            padding: 5px 10px;
+            background-color: #0f0c5d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contact-form button:hover {
+            background-color: #006ab9;
+        }
+
+        footer {
+            margin-top: 30px;
+            border-top: 1px solid #b7c5d9;
+            padding-top: 10px;
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .theme-selector {
+            margin-bottom: 10px;
+            text-align: right;
+        }
+
+        .theme-button {
+            padding: 2px 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            background-color: var(--post-bg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .post-img {
+                max-width: 150px;
+                max-height: 150px;
+            }
+            
+            .reply {
+                margin-left: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .post-img {
+                float: none;
+                display: block;
+                margin: 0 auto 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="board-header">
+            <h1 class="board-title">/dev/ - Developer Portfolio</h1>
+            <div class="board-subtitle">[Portfolio] [Projects] [Experience] [Contact]</div>
+        </header>
+
+        <nav class="board-nav">
+            <a href="#about">About</a> | 
+            <a href="#projects">Projects</a> | 
+            <a href="#experience">Experience</a> | 
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="theme-selector">
+            <span>Theme:</span>
+            <button class="theme-button" data-theme="default">Yotsuba B</button>
+            <button class="theme-button" data-theme="tomorrow">Tomorrow</button>
+            <button class="theme-button" data-theme="yotsuba">Yotsuba</button>
+        </div>
+
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="tab-button active" data-tab="about">About</button>
+                <button class="tab-button" data-tab="projects">Projects</button>
+                <button class="tab-button" data-tab="experience">Experience</button>
+                <button class="tab-button" data-tab="contact">Contact</button>
+            </div>
+
+            <div id="about" class="tab-content active">
+                <div class="thread">
+                    <div class="op-post">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)12:34:56</span>
+                            <span class="post-number">#12345678</span>
+                        </div>
+                        <img src="/api/placeholder/200/200" alt="profile picture" class="post-img">
+                        <div class="post-content">
+                            <p>Hello /dev/,</p>
+                            <p>I'm a software developer with 5+ years of experience building web applications, mobile apps, and backend systems. Currently looking for new opportunities.</p>
+                            <br>
+                            <p class="greentext">&gt; Skills include:</p>
+                            <div class="skills-list">
+                                <span>JavaScript</span>
+                                <span>TypeScript</span>
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>Python</span>
+                                <span>Django</span>
+                                <span>PostgreSQL</span>
+                                <span>AWS</span>
+                                <span>Docker</span>
+                                <span>CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)12:35:23</span>
+                            <span class="post-number">#12345679</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="greentext">&gt; Tell us more about yourself anon</p>
+                            <p>I'm passionate about clean code, system architecture, and solving complex problems. I enjoy working with teams that value innovation and quality.</p>
+                            <p>Started programming when I was 14, first with Visual Basic, then moved to web dev in college. Been hooked ever since.</p>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)12:36:45</span>
+                            <span class="post-number">#12345680</span>
+                        </div>
+                        <div class="post-content">
+                            <p>Outside of coding, I'm interested in:</p>
+                            <p class="greentext">&gt; Open source contribution</p>
+                            <p class="greentext">&gt; Tech meetups & conferences</p>
+                            <p class="greentext">&gt; Mentoring junior developers</p>
+                            <p class="greentext">&gt; Writing technical blogs</p>
+                            <p>Check my GitHub for more: <a href="#" class="fake-file">github.com/anon-dev</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects" class="tab-content">
+                <div class="thread">
+                    <div class="op-post">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)13:22:10</span>
+                            <span class="post-number">#22334455</span>
+                        </div>
+                        <img src="/api/placeholder/200/200" alt="Project 1" class="post-img">
+                        <div class="post-content">
+                            <p class="post-title">Project: E-Commerce Platform</p>
+                            <p>Built a complete e-commerce solution from scratch with React frontend and Node.js backend.</p>
+                            <br>
+                            <p class="greentext">&gt; Features:</p>
+                            <p>- User authentication</p>
+                            <p>- Product catalog with filtering</p>
+                            <p>- Shopping cart and checkout</p>
+                            <p>- Admin dashboard</p>
+                            <p>- Payment integration</p>
+                            <br>
+                            <a href="#" class="fake-file">View Project</a>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)13:24:42</span>
+                            <span class="post-number">#22334456</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Project: Task Management App</p>
+                            <img src="/api/placeholder/150/150" alt="Project 2" style="float: right; margin-left: 10px; margin-bottom: 10px; border: 1px solid #b7c5d9;">
+                            <p>Developed a Kanban-style task management application with drag-and-drop interface.</p>
+                            <p class="greentext">&gt; Tech stack: React, Redux, Express, MongoDB</p>
+                            <p class="greentext">&gt; Responsive design works on mobile</p>
+                            <p class="greentext">&gt; Real-time updates using Socket.io</p>
+                            <br>
+                            <a href="#" class="fake-file">View Project</a>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)13:27:33</span>
+                            <span class="post-number">#22334457</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Project: Weather App</p>
+                            <p>Simple but elegant weather application pulling data from OpenWeatherMap API.</p>
+                            <p class="greentext">&gt; Features geolocation</p>
+                            <p class="greentext">&gt; 5-day forecast</p>
+                            <p class="greentext">&gt; Weather alerts</p>
+                            <br>
+                            <a href="#" class="fake-file">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="experience" class="tab-content">
+                <div class="thread">
+                    <div class="op-post">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)14:05:12</span>
+                            <span class="post-number">#33445566</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Professional Experience</p>
+                            <p>Below is a summary of my work history and education.</p>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)14:06:23</span>
+                            <span class="post-number">#33445567</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Senior Developer at TechCorp (2023-Present)</p>
+                            <p>Lead developer for the company's main SaaS product.</p>
+                            <p class="greentext">&gt; Redesigned architecture leading to 40% performance improvement</p>
+                            <p class="greentext">&gt; Implemented CI/CD pipeline reducing deployment time by 70%</p>
+                            <p class="greentext">&gt; Mentored junior developers and led code reviews</p>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)14:07:45</span>
+                            <span class="post-number">#33445568</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Web Developer at StartupX (2020-2023)</p>
+                            <p>Full-stack developer for an early-stage fintech startup.</p>
+                            <p class="greentext">&gt; Built the MVP in 3 months that secured seed funding</p>
+                            <p class="greentext">&gt; Developed responsive web application and REST API</p>
+                            <p class="greentext">&gt; Integrated third-party payment services</p>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)14:09:18</span>
+                            <span class="post-number">#33445569</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Education</p>
+                            <p>B.S. Computer Science, Tech University (2016-2020)</p>
+                            <p class="greentext">&gt; GPA: 3.8/4.0</p>
+                            <p class="greentext">&gt; Specialized in Software Engineering</p>
+                            <p class="greentext">&gt; Senior project: Distributed database system</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact" class="tab-content">
+                <div class="thread">
+                    <div class="op-post">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)15:14:22</span>
+                            <span class="post-number">#44556677</span>
+                        </div>
+                        <div class="post-content">
+                            <p class="post-title">Contact Me</p>
+                            <p>Interested in working together? Drop me a message below or via:</p>
+                            <p class="greentext">&gt; Email: anon@example.com</p>
+                            <p class="greentext">&gt; LinkedIn: linkedin.com/in/anon-dev</p>
+                            <p class="greentext">&gt; GitHub: github.com/anon-dev</p>
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <div class="post-info">
+                            <span class="post-title">Anonymous</span>
+                            <span class="post-time">05/19/25(Mon)15:15:45</span>
+                            <span class="post-number">#44556678</span>
+                        </div>
+                        <div class="post-content">
+                            <form id="contact-form">
+                                <label for="name">Name (optional):</label>
+                                <input type="text" id="name" placeholder="Anonymous">
+                                
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" placeholder="your@email.com" required>
+                                
+                                <label for="subject">Subject:</label>
+                                <input type="text" id="subject" placeholder="Job opportunity" required>
+                                
+                                <label for="message">Message:</label>
+                                <textarea id="message" rows="5" placeholder="Type your message here..." required></textarea>
+                                
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Anon Developer - This portfolio is a parody and homage to imageboard styling</p>
+            <p>All posts are fictional and for demonstration purposes only</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // URL hash navigation
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Activate the corresponding tab
+                document.querySelector(`.tab-button[data-tab="${hash}"]`).classList.add('active');
+                document.getElementById(hash).classList.add('active');
+            }
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        
+        // Check hash on page load
+        if (window.location.hash) {
+            handleHashChange();
+        }
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value || 'Anonymous';
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // For demo purposes, we'll just log it and show an alert
+            console.log({name, email, subject, message});
+            
+            // Create a new reply with the message
+            const newReply = document.createElement('div');
+            newReply.className = 'reply';
+            newReply.innerHTML = `
+                <div class="post-info">
+                    <span class="post-title">${name}</span>
+                    <span class="post-time">${new Date().toLocaleString()}</span>
+                    <span class="post-number">#${Math.floor(Math.random() * 10000000)}</span>
+                </div>
+                <div class="post-content">
+                    <p class="post-title">${subject}</p>
+                    <p>${message}</p>
+                    <p class="greentext">&gt; From: ${email}</p>
+                    <p>Your message has been sent! (In a real application, this would be sent to a server)</p>
+                </div>
+            `;
+            
+            // Add the new reply to the contact thread
+            document.querySelector('#contact .thread').appendChild(newReply);
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+        });
+
+        // Theme switcher
+        const themes = {
+            default: {
+                '--bg-color': '#eef2ff',
+                '--post-bg': '#d6daf0',
+                '--border-color': '#b7c5d9',
+                '--link-color': '#34345c',
+                '--text-color': '#000000',
+                '--header-color': '#006ab9',
+                '--post-hover': '#ececf5',
+                '--thread-bg': '#f0e0d6'
+            },
+            tomorrow: {
+                '--bg-color': '#1d1f21',
+                '--post-bg': '#282a2e',
+                '--border-color': '#373b41',
+                '--link-color': '#81a2be',
+                '--text-color': '#c5c8c6',
+                '--header-color': '#5f89ac',
+                '--post-hover': '#2d2f33',
+                '--thread-bg': '#2d2f33'
+            },
+            yotsuba: {
+                '--bg-color': '#ffffee',
+                '--post-bg': '#f0e0d6',
+                '--border-color': '#d9bfb7',
+                '--link-color': '#800000',
+                '--text-color': '#800000',
+                '--header-color': '#800000',
+                '--post-hover': '#f5eae0',
+                '--thread-bg': '#f0e0d6'
+            }
+        };
+
+        document.querySelectorAll('.theme-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const theme = button.getAttribute('data-theme');
+                if (themes[theme]) {
+                    Object.entries(themes[theme]).forEach(([property, value]) => {
+                        document.documentElement.style.setProperty(property, value);
+                    });
+                }
+            });
+        });
+
+        // Dynamic content loading simulation
+        function loadDynamicContent() {
+            // This function could be used to load content from an API
+            // For demonstration purposes, we'll just add some random posts occasionally
+            
+            const randomReplies = [
+                {
+                    title: "Impressed Anon",
+                    content: "Wow, your portfolio looks great! Love the 4chan aesthetic while keeping it professional."
+                },
+                {
+                    title: "Recruiter",
+                    content: "Interesting approach to a portfolio. Would you be interested in discussing a senior developer position at our company?"
+                },
+                {
+                    title: "Fellow Dev",
+                    content: "How did you handle the responsive design on that e-commerce platform? I'm working on something similar."
+                }
+            ];
+            
+            // Randomly decide whether to add a reply
+            if (Math.random() > 0.7) {
+                const randomReply = randomReplies[Math.floor(Math.random() * randomReplies.length)];
+                const randomThread = document.querySelectorAll('.thread')[Math.floor(Math.random() * document.querySelectorAll('.thread').length)];
+                
+                if (randomThread) {
+                    const newReply = document.createElement('div');
+                    newReply.className = 'reply';
+                    newReply.innerHTML = `
+                        <div class="post-info">
+                            <span class="post-title">${randomReply.title}</span>
+                            <span class="post-time">${new Date().toLocaleString()}</span>
+                            <span class="post-number">#${Math.floor(Math.random() * 10000000)}</span>
+                        </div>
+                        <div class="post-content">
+                            <p>${randomReply.content}</p>
+                        </div>
+                    `;
+                    
+                    randomThread.appendChild(newReply);
+                }
+            }
+        }
+
+        // Uncomment this to enable random dynamic content loading
+        // setInterval(loadDynamicContent, 60000); // Every minute
+    </script>
+</body>
+</html>
